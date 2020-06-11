@@ -4,7 +4,7 @@ Description: This project is owned by HCL Tech System Software team to support t
 Owner of the Project: HCL Tech System Software Team
 Contributor: HCL Tech System Software Team
 Mail To: hcl_ss_oss@hcl.com
-Tags: Load Testing, Performance Testing, Cloud based Load Testing, Cloud based Performance Testing, Cloud based Load & Performance Testing, AWS, CLOUD, INFRASTRUCTURE, CAPACITY
+Tags: Load Testing, Performance Testing, Cloud based Load Testing, Cloud based Performance Testing, Cloud based Load & Performance Testing, AWS, Cloud, Infrastructure, Capacity
 Created:  2020 Jun 09
 Modified: 2020 Jun 11
 ---
