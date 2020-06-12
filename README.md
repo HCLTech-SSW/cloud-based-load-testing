@@ -6,7 +6,7 @@ Contributor: HCL Tech System Software Team
 Mail To: hcl_ss_oss@hcl.com
 Tags: Load Testing, Performance Testing, Cloud based Load Testing, Cloud based Performance Testing, Cloud based Load & Performance Testing, AWS, Cloud, Infrastructure, Capacity
 Created:  2020 Jun 09
-Modified: 2020 Jun 11
+Modified: 2020 Jun 12
 ---
 
 # cloud-based-load-testing
@@ -85,8 +85,8 @@ git clone https://github.com/HCLTech-SSW/cloud-based-load-testing.git
 **Step6:** Specify the Amazon S3 URL for template file (location of “stack-deploy.yaml” file in S3 bucket) and click Next.
 
 **Step7:** Specify the mandatory parameters like “Stack name”, “Console Administrator Name” and “Console Administrator Email”. 
-       Also please review the “AWS Farget VPC cidr block”, “AWS Farget Subnet A cidr block”, “AWS Farget Subnet B cidr block” 
-	   and “AWS Farget SecurityGroup cidr block”.
+       Also please review the “AWS Fargate VPC cidr block”, “AWS Fargate Subnet A cidr block”, “AWS Fargate Subnet B cidr block” 
+	   and “AWS Fargate SecurityGroup cidr block”.
 
 **Step8:** The stack creation process now starts, and it will deploy the stack on AWS in 10-15 minutes.
 
@@ -97,7 +97,7 @@ git clone https://github.com/HCLTech-SSW/cloud-based-load-testing.git
 
 ## How to perform Load & Performance test
 
-**Step1:** Click **CREATE TEST**, and specify the values required for creating test, as shown in the following screenshot (currently fileld with sample values).
+**Step1:** Click **CREATE TEST**, and specify the values required for creating test, as shown in the following screenshot (currently filled with sample values).
 
 ![Image1](https://github.com/HCLTech-SSW/cloud-based-load-testing/blob/master/images/Image1.png)
 
@@ -135,7 +135,7 @@ additional information like HTTP Headers and Body Payload data in json format.
 
 ![Image10](https://github.com/HCLTech-SSW/cloud-based-load-testing/blob/master/images/Image10.png)
 
-**Step6:** Test can be modified by clickin on **UPDATE**, where the Test related information can be modified.  
+**Step6:** Test can be modified by clicking on **UPDATE**, where the Test related information can be modified.  
 
 ![Image11](https://github.com/HCLTech-SSW/cloud-based-load-testing/blob/master/images/Image11.png)
 
@@ -158,3 +158,16 @@ additional information like HTTP Headers and Body Payload data in json format.
 • **perc_0.0 .. perc_100.0:** _This parameter defines the percentile levels for response time, 0 is also minimum response 
   time, 100 is maximum._<br>
 • **Bytes:** _This parameter denotes the total download size for the packets sent or received over HTTP._<br>
+
+## Limitations
+
+**Load Testing Limits:**
+The maximum number of tasks that can be running in Amazon Elastic Container Service (Amazon ECS) using the AWS Fargate launch type is 50 per AWS Region, per account. For more information, see Amazon ECS Service Limits. For instructions on how to request an increase, see AWS Service Limits in the AWS General Reference Guide.
+
+The Taurus load testing Docker image can generate up to 200 concurrent connections per task which means that the maximum load for a single test is 10,000 concurrent requests (200 connections * 50 running tasks at a time). The maximum execution time for a single test is four hours.
+
+**Concurrent Tests:**
+This solution includes an Amazon CloudWatch dashboard that displays the combined output of all tasks running in the Amazon ECS cluster in real time. Only one CloudWatch log group can be assigned to an ECS cluster. This solution’s web console supports one running test at a time. If you run more than one test at a time, the dashboard will show the combined results from all tests.
+
+**Amazon EC2 Testing Policy:**
+You do not need approval from AWS to run load tests using this solution as long as your network traffic stays below 1 Gbps. If your test will generate more than 1 Gbps, contact AWS. For more information, see the Amazon EC2 Testing Policy.
