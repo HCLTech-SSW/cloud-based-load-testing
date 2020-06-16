@@ -29,9 +29,9 @@ Main goal of Load testing is to verify that the web server can work correctly wi
 
 The purpose of web server load testing is to simulate real-life conditions for the application under test and determine how the application behaves when it is working under a massive load. Web server load testing can give answers to the following typical questions:
 
-Does my server support N concurrent users?
-How many users can simultaneously work with the web server without a perceptible slowdown?
-How does the server response time change if you increase or decrease the number of users?
+Does my server support N concurrent users?<br>
+How many users can simultaneously work with the web server without a perceptible slowdown?<br>
+How does the server response time change if you increase or decrease the number of users?<br>
 
 During a load test, we can find out how the website, app, or any other digital product behaves when a lot of users try to access it at the same time. In the particular test, we can focus on specific parts, for example the checkout process for a shopping cart.
 
